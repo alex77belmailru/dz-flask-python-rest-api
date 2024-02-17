@@ -7,6 +7,7 @@ from eshop.data_access.product_repo import get_by_id as product_get_by_id
 
 
 def order_create(product_ids: List[str]):
+    """Создание заказа из списка ID продуктов"""
     products = []
     for id in product_ids:
         product = product_get_by_id(id)
@@ -28,8 +29,10 @@ def order_create(product_ids: List[str]):
 
 
 def order_get_by_id(id: str) -> Optional[Order]:
+    """Получение заказа по его ID"""
     return get_by_id(id)
 
 
 def order_get_many(page: int, limit: int) -> List[Order]:
+    """Получение списка заказов"""
     return get_many(page=page, limit=limit)
