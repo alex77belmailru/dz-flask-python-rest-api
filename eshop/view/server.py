@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 # order views
 
-@app.post("/api/v1/order")
+@app.post("/api/v1/order/")
 def order_create_endpoint():
     """Эндпоинт для создания заказа"""
     try:
@@ -31,7 +31,7 @@ def order_create_endpoint():
     return OrderSchema().dump(order)
 
 
-@app.get("/api/v1/order")
+@app.get("/api/v1/order/")
 def order_get_many_endpoint():
     """Эндпоинт для получения списка заказов"""
     try:
@@ -47,7 +47,7 @@ def order_get_many_endpoint():
     return OrderSchema(many=True).dump(order)
 
 
-@app.get("/api/v1/order/<id>")
+@app.get("/api/v1/order/<id>/")
 def order_get_by_id_endpoint(id):
     """Эндпоинт для получения заказа по ID"""
     order = order_get_by_id(id)
@@ -62,7 +62,7 @@ def order_get_by_id_endpoint(id):
 
 # product views
 
-@app.post("/api/v1/product")
+@app.post("/api/v1/product/")
 def product_create_endpoint():
     """Эндпоинт для создания продукта"""
     try:
@@ -82,7 +82,7 @@ def product_create_endpoint():
     return ProductSchema().dump(product)
 
 
-@app.get("/api/v1/product")
+@app.get("/api/v1/product/")
 def product_get_many_endpoint():
     """Эндпоинт для получения списка продуктов"""
     try:
@@ -98,7 +98,7 @@ def product_get_many_endpoint():
     return ProductSchema(many=True).dump(product)
 
 
-@app.get("/api/v1/product/<id>")
+@app.get("/api/v1/product/<id>/")
 def product_get_by_id_endpoint(id):
     """Эндпоинт для получения продукта по ID"""
     product = product_get_by_id(id)
